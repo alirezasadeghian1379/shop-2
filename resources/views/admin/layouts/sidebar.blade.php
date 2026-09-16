@@ -130,17 +130,17 @@
             @endif
 
 
-{{--            @if(in_array('index slider',app('permissions')))--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link " href="{{route('admin.sliders.index')}}">--}}
-{{--                        <div--}}
-{{--                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">--}}
-{{--                            <i class="bi bi-images text-primary text-lg opacity-10"></i>--}}
-{{--                        </div>--}}
-{{--                        <span class="nav-link-text me-1">{{ __('dashboard::app.slider')}}</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
+            @if(in_array('index slider',app('permissions')))
+                <li class="nav-item">
+                    <a class="nav-link " href="{{route('admin.sliders.index')}}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-images text-primary text-lg opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">{{ __('web/dashboard.slider')}}</span>
+                    </a>
+                </li>
+            @endif
             @if(in_array('index setting',app('permissions')))
                 <li class="nav-item">
                     <a class="nav-link " href="{{route('admin.settings.index')}}">
@@ -152,17 +152,17 @@
                     </a>
                 </li>
             @endif
-{{--            @if(in_array('index question',app('permissions')))--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link " href="{{route('admin.questions.index')}}">--}}
-{{--                        <div--}}
-{{--                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">--}}
-{{--                            <i class="bi bi-question-lg text-primary text-lg opacity-10"></i>--}}
-{{--                        </div>--}}
-{{--                        <span class="nav-link-text me-1">{{ __('dashboard::app.question')}}</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
+            @if(in_array('index question',app('permissions')))
+                <li class="nav-item">
+                    <a class="nav-link " href="{{route('admin.questions.index')}}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-question-lg text-primary text-lg opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">{{ __('web/dashboard.question')}}</span>
+                    </a>
+                </li>
+            @endif
 {{--            @if(in_array('index notification',app('permissions')))--}}
 {{--                <li class="nav-item">--}}
 {{--                    <a class="nav-link " href="{{route('admin.notifications.index')}}">--}}
@@ -174,20 +174,6 @@
 {{--                    </a>--}}
 {{--                </li>--}}
 {{--            @endif--}}
-
-{{--            @if(in_array('index app-version',app('permissions')))--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link " href="{{route('admin.app-versions.index')}}">--}}
-{{--                        <div--}}
-{{--                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">--}}
-{{--                            <i class="bi bi-terminal-dash text-primary text-lg opacity-10"></i>--}}
-{{--                        </div>--}}
-{{--                        <span class="nav-link-text me-1">{{ __('dashboard::app.appVersion')}}</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
-
-
 
             <li class="nav-item mt-3">
                 <h6 class="ps-4 me-4 pe-2 text-uppercase text-xs font-weight-bolder opacity-6"></h6>

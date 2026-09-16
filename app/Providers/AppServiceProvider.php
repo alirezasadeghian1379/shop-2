@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Policies\RolePolicy;
 use App\Policies\UserPolicy;
 use App\Repositories\Admin\{AdminModuleRepository, IAdminRepository, Models\Admin};
+use App\Repositories\Question\{IQuestionRepository,QuestionModuleRepository};
+use App\Repositories\Slider\{ISliderRepository,SliderModuleRepository};
 use App\Repositories\User\{IUserRepository,UserModuleRepository};
 use App\Repositories\State\Contracts\{ICityRepository,IProvinceRepository};
 use App\Repositories\State\Repositories\{CityModuleRepository,ProvinceModuleRepository};
@@ -36,6 +38,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IProvinceRepository::class,ProvinceModuleRepository::class);
         $this->app->bind(ICityRepository::class,CityModuleRepository::class);
         $this->app->bind(IUserRepository::class,UserModuleRepository::class);
+        $this->app->bind(IQuestionRepository::class,QuestionModuleRepository::class);
+        $this->app->bind(ISliderRepository::class,SliderModuleRepository::class);
 
         $this->app->singleton('logo', function ($app) {
             $settingService = $app->make(SettingService::class);

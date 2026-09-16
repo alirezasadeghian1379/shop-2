@@ -18,6 +18,8 @@ return [
     'state' => 'شهر و استان ها',
     'province' => 'استان ها',
     'city' => 'شهرها',
+    'question' => 'سوالات متداول',
+    'slider' => 'اسلایدر',
     'auth' => [
         'titlePage' => 'ورود به داشبورد',
         'form' => [
@@ -27,16 +29,5 @@ return [
             'loginBtn' => 'ورود'
         ],
     ],
-    'enums' => [
-        'roleType' => [
-            'user_text' => 'کاربر',
-            'super_admin_text' => 'سوپر ادمین',
-            'admin_text' => 'ادمین',
-            'restaurant_text' => 'رستوران',
-        ],
-        'storageType' => [
-            ''
-        ]
-    ]
 ];
 

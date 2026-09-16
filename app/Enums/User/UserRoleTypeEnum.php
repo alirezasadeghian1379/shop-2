@@ -19,9 +19,9 @@ enum UserRoleTypeEnum
     public static function getRoleTypesPersian() :array
     {
         return [
-            self::USER => __('web/dashboard.enums.roleType.user_text'),
-            self::ADMIN => __('web/dashboard.enums.roleType.admin_text'),
-            self::SUPER_ADMIN => __('web/dashboard.enums.roleType.super_admin_text'),
+            self::USER => 'کاربر',
+            self::ADMIN => 'ادمین',
+            self::SUPER_ADMIN => 'سوپر ادمین',
         ];
     }
 }

@@ -11,6 +11,8 @@ enum PermissionEnum
     const SETTING = 'setting';
     const PROVINCE = 'province';
     const CITY = 'city';
+    const QUESTION = 'question';
+    const SLIDER = 'slider';
 
 
     static function Models(): array
@@ -78,6 +80,26 @@ enum PermissionEnum
                     'destroy' => 'حذف',
                 ]
             ],
+            self::QUESTION => [
+                'actions' => [
+                    'index' => 'لیست',
+                    'create' => 'ایجاد',
+                    'store' => 'ثبت',
+                    'edit' => 'ویرایش',
+                    'update' => 'به روزرسانی',
+                    'destroy' => 'حذف',
+                ]
+            ],
+            self::SLIDER => [
+                'actions' => [
+                    'index' => 'لیست',
+                    'create' => 'ایجاد',
+                    'store' => 'ثبت',
+                    'edit' => 'ویرایش',
+                    'update' => 'به روزرسانی',
+                    'destroy' => 'حذف',
+                ]
+            ],
 
         ];
         return $models;
@@ -91,5 +113,7 @@ enum PermissionEnum
         self::SETTING => 'تنظیمات',
         self::PROVINCE => 'استان ها',
         self::CITY => 'شهرها',
+        self::QUESTION => 'سوالات متداول',
+        self::SLIDER => 'اسلایدر',
     ];
 }

@@ -21,7 +21,8 @@ Route::as('admin.')->middleware([])->group(function (){
         Route::resource('roles',\App\Http\Controllers\V1\Web\RoleController::class);
         Route::resource('provinces',\App\Http\Controllers\V1\Web\ProvinceController::class);
         Route::resource('cities',\App\Http\Controllers\V1\Web\CityController::class);
-
+        Route::resource('questions',\App\Http\Controllers\V1\Web\QuestionController::class);
+        Route::resource('sliders',\App\Http\Controllers\V1\Web\SliderController::class);
     });
 
 });

@@ -152,7 +152,7 @@
                                     </div>
                                 </div>
                                 <div class="col-4 text-start">
-                                    <form action="#" method="POST">
+                                    <form action="{{route('admin.clearCache')}}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn bg-gradient-primary">{{ __('web/dashboard.clear_cache_title')}}</button>
                                     </form>
