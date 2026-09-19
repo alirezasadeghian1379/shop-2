@@ -16,8 +16,8 @@ enum PaymentMethodEnum
     public static function getMethodsDescription() :array
     {
         return [
-            self::WALLET => __('dashboard::app.enums.paymentMethod.wallet_text'),
-            self::GATEWAY => __('dashboard::app.enums.paymentMethod.gateway_text'),
+            self::WALLET => 'کیف پول',
+            self::GATEWAY => 'پرداخت آنلاین',
         ];
     }
 

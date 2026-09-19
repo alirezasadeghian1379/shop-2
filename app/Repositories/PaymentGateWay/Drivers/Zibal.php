@@ -8,6 +8,7 @@ use App\Repositories\PaymentGateWay\Models\PaymentCallbackDto;
 use App\Repositories\PaymentGateWay\Models\PaymentGateWayPay;
 use App\Repositories\PaymentGateWay\Models\PaymentGateWayResult;
 use Illuminate\Support\Facades\Http;
+use Throwable;
 
 class Zibal implements IPaymentGateWay
 {

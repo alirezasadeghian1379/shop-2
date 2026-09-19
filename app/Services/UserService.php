@@ -49,5 +49,4 @@ class UserService
     {
         return $this->userRepository->getAllLatestByCount($count);
     }
-
 }

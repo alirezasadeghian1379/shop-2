@@ -23,6 +23,8 @@ Route::as('admin.')->middleware([])->group(function (){
         Route::resource('cities',\App\Http\Controllers\V1\Web\CityController::class);
         Route::resource('questions',\App\Http\Controllers\V1\Web\QuestionController::class);
         Route::resource('sliders',\App\Http\Controllers\V1\Web\SliderController::class);
+        Route::resource('notifications',\App\Http\Controllers\V1\Web\NotificationController::class);
+        Route::post('notifications/destroyAll',[\App\Http\Controllers\V1\Web\NotificationController::class,'destroyAll'])->name('notifications.destroyAll');
     });
 
 });

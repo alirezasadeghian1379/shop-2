@@ -20,6 +20,7 @@ return [
     'city' => 'شهرها',
     'question' => 'سوالات متداول',
     'slider' => 'اسلایدر',
+    'notification' => 'اعلان ها',
     'auth' => [
         'titlePage' => 'ورود به داشبورد',
         'form' => [

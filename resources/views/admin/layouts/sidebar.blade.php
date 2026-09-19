@@ -163,17 +163,17 @@
                     </a>
                 </li>
             @endif
-{{--            @if(in_array('index notification',app('permissions')))--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link " href="{{route('admin.notifications.index')}}">--}}
-{{--                        <div--}}
-{{--                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">--}}
-{{--                            <i class="bi bi-bell-fill text-primary text-lg opacity-10"></i>--}}
-{{--                        </div>--}}
-{{--                        <span class="nav-link-text me-1">{{ __('dashboard::app.notification')}}</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-{{--            @endif--}}
+            @if(in_array('index notification',app('permissions')))
+                <li class="nav-item">
+                    <a class="nav-link " href="{{route('admin.notifications.index')}}">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-bell-fill text-primary text-lg opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">{{ __('web/dashboard.notification')}}</span>
+                    </a>
+                </li>
+            @endif
 
             <li class="nav-item mt-3">
                 <h6 class="ps-4 me-4 pe-2 text-uppercase text-xs font-weight-bolder opacity-6"></h6>

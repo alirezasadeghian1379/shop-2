@@ -5,6 +5,9 @@ namespace App\Providers;
 use App\Policies\RolePolicy;
 use App\Policies\UserPolicy;
 use App\Repositories\Admin\{AdminModuleRepository, IAdminRepository, Models\Admin};
+use App\Repositories\FirebaseNotification\{FirebaseNotificationModuleRepository,IFirebaseNotificationRepository};
+use App\Repositories\UserNotification\{IUserNotificationRepository,UserNotificationModuleRepository};
+use App\Repositories\Notification\{INotificationRepository,NotificationModuleRepository};
 use App\Repositories\Question\{IQuestionRepository,QuestionModuleRepository};
 use App\Repositories\Slider\{ISliderRepository,SliderModuleRepository};
 use App\Repositories\User\{IUserRepository,UserModuleRepository};
@@ -40,6 +43,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(IUserRepository::class,UserModuleRepository::class);
         $this->app->bind(IQuestionRepository::class,QuestionModuleRepository::class);
         $this->app->bind(ISliderRepository::class,SliderModuleRepository::class);
+        $this->app->bind(INotificationRepository::class,NotificationModuleRepository::class);
+        $this->app->bind(IUserNotificationRepository::class,UserNotificationModuleRepository::class);
+        $this->app->bind(IFirebaseNotificationRepository::class,FirebaseNotificationModuleRepository::class);
 
         $this->app->singleton('logo', function ($app) {
             $settingService = $app->make(SettingService::class);

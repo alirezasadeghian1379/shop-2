@@ -7,6 +7,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "google/auth": "^1.50",
         "anakadote/image-manager": "^1.1",
         "hekmatinasser/verta": "^9.0",
         "intervention/image": "^4.3",

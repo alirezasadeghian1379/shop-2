@@ -14,7 +14,6 @@ use App\Models\User as UserModel;
 
 class UserModuleRepository implements IUserRepository
 {
-
     public function all(): Collection
     {
         $users = UserModel::with(['roles','avatar'])
@@ -45,7 +44,6 @@ class UserModuleRepository implements IUserRepository
             );
         });
     }
-
     public function paginate(int $perPage) :PaginatorAdapter
     {
         $users = UserModel::with(['roles','avatar'])
@@ -79,7 +77,6 @@ class UserModuleRepository implements IUserRepository
         );
         return new EloquentPaginatorAdapter($users);
     }
-
     public function findById(int $id):User
     {
        $user = UserModel::where('id', $id)->first();
@@ -106,7 +103,6 @@ class UserModuleRepository implements IUserRepository
            ))->first(),
        );
     }
-
     public function create(array $data):User
     {
         $user = UserModel::create([
@@ -139,7 +135,6 @@ class UserModuleRepository implements IUserRepository
             ))->first(),
         );
     }
-
     public function update(int $id, array $data):User
     {
         $user = UserModel::where('id', $id)->first();

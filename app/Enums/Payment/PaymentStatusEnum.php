@@ -20,23 +20,23 @@ enum PaymentStatusEnum
     public static function getStatusesDescription() :array
     {
         return [
-            self::INITIATED => __('dashboard::app.enums.paymentStatus.initiated_text'),
-            self::PENDING => __('dashboard::app.enums.paymentStatus.pending_text'),
-            self::PAID => __('dashboard::app.enums.paymentStatus.paid_text'),
-            self::FAILED => __('dashboard::app.enums.paymentStatus.failed_text'),
-            self::CANCELLED => __('dashboard::app.enums.paymentStatus.cancelled_text'),
-            self::REFUNDED => __('dashboard::app.enums.paymentStatus.refunded_text'),
+            self::INITIATED => 'درخواست ایجاد شده',
+            self::PENDING => 'در انتظار تایید',
+            self::PAID => 'پرداخت موفق',
+            self::FAILED => 'پرداخت ناموفق',
+            self::CANCELLED => 'لغو توسط کاربر',
+            self::REFUNDED => 'برگشت خورده',
         ];
     }
     public static function getStatusesColor() :array
     {
         return [
-            self::INITIATED => __('dashboard::app.enums.paymentStatus.initiated_color'),
-            self::PENDING => __('dashboard::app.enums.paymentStatus.pending_color'),
-            self::PAID => __('dashboard::app.enums.paymentStatus.paid_color'),
-            self::FAILED => __('dashboard::app.enums.paymentStatus.failed_color'),
-            self::CANCELLED => __('dashboard::app.enums.paymentStatus.cancelled_color'),
-            self::REFUNDED => __('dashboard::app.enums.paymentStatus.refunded_color'),
+            self::INITIATED => 'warning',
+            self::PENDING => 'warning',
+            self::PAID => 'success',
+            self::FAILED => 'danger',
+            self::CANCELLED => 'danger',
+            self::REFUNDED => 'danger',
         ];
     }
 
