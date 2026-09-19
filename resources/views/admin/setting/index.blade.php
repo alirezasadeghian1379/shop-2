@@ -26,7 +26,6 @@
                                     <p class="text-uppercase text-sm">{{__('web/setting.title')}}</p>
                                     <div class="row bb-item-wrapper-custom">
 
-
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="titleSite" class="form-control-label">{{__('web/setting.form.titleSite')}}</label>
@@ -53,22 +52,12 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="whatsapp" class="form-control-label">{{__('web/setting.form.whatsapp')}}</label>
-                                                <input class="form-control {{$errors->has('whatsapp') ? 'border-danger':''}}"
-                                                       type="text" name="settings[whatsapp]" id="whatsapp" value="{{isset($setting) && isset($setting['whatsapp']) ? $setting['whatsapp']:old('whatsapp')}}" autocomplete="off" placeholder="{{__('web/setting.form.whatsapp')}}">
-                                                @error('whatsapp') <div class="text-danger text-14">{{$message}}</div> @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
                                                 <label for="email" class="form-control-label">{{__('web/setting.form.email')}}</label>
                                                 <input class="form-control {{$errors->has('email') ? 'border-danger':''}}"
                                                        type="text" name="settings[email]" id="email" value="{{isset($setting) && isset($setting['email']) ? $setting['email']:old('email')}}" autocomplete="off" placeholder="{{__('web/setting.form.email')}}">
                                                 @error('email') <div class="text-danger text-14">{{$message}}</div> @enderror
                                             </div>
                                         </div>
-
-
 
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -90,97 +79,7 @@
 
                                         <div class="col-12">
                                             <hr class="w-100">
-                                            <div class="d-flex justify-content-start align-items-center gap-2 flex-wrap">
-                                                <p class="m-0">{{__('web/setting.helpOptions.list')}}</p>
-                                                <button type="button" id="createHelpItem" class="btn btn-sm btn-success">{{__('web/setting.helpOptions.add')}}</button>
-                                            </div>
-                                            <hr class="w-100">
                                         </div>
-
-                                        <div class="col-12 p-0">
-                                            <div class="row w-100 p-0 m-0 parentHelpItems">
-                                                @if(isset($setting) && isset($setting['help']))
-                                                    @foreach(array_values(json_decode($setting['help'],true)) as $keyHelp => $valueHelp)
-                                                        <div class="col-md-6">
-                                                            <div class="form-group position-relative">
-                                                                <input class="form-control" type="text" name="settings[help][{{$keyHelp}}]" value="{{$valueHelp}}" autocomplete="off">
-                                                                <span class="removeHelpItem"><i class="bi bi-x d-flex"></i></span>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <hr class="w-100">
-                                            <p class="m-0">{{__('web/setting.aboutOptions.list')}}</p>
-                                            <hr class="w-100">
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="about_target" class="form-control-label">{{__('web/setting.form.about_target')}}</label>
-                                                <input class="form-control {{$errors->has('about_target') ? 'border-danger':''}}"
-                                                       type="text" name="settings[about_target]" id="about_target" value="{{isset($setting) && isset($setting['about_target']) ? $setting['about_target']:old('about_target')}}" autocomplete="off" placeholder="{{__('web/setting.form.about_target')}}">
-                                                @error('about_target') <div class="text-danger text-14">{{$message}}</div> @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="about_guarantee" class="form-control-label">{{__('web/setting.form.about_guarantee')}}</label>
-                                                <input class="form-control {{$errors->has('about_guarantee') ? 'border-danger':''}}"
-                                                       type="text" name="settings[about_guarantee]" id="about_guarantee" value="{{isset($setting) && isset($setting['about_guarantee']) ? $setting['about_guarantee']:old('about_guarantee')}}" autocomplete="off" placeholder="{{__('web/setting.form.about_guarantee')}}">
-                                                @error('about_guarantee') <div class="text-danger text-14">{{$message}}</div> @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="about_text" class="form-control-label">{{__('web/setting.form.about_text')}}</label>
-                                                <textarea name="settings[about_text]" autocomplete="off" id="about_text" class="form-control tinyMce {{$errors->has('about_text') ? 'border-danger':''}}" cols="30" rows="5">{{isset($setting) && isset($setting['about_text']) ? $setting['about_text']:old('about_text')}}</textarea>
-                                                @error('about_text') <div class="text-danger text-14">{{$message}}</div> @enderror
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <hr class="w-100">
-                                            <div class="d-flex justify-content-start align-items-center gap-2 flex-wrap">
-                                                <p class="m-0">{{__('web/setting.skillOptions.list')}}</p>
-                                                <button type="button" id="createSkillItem" class="btn btn-sm btn-success">{{__('web/setting.skillOptions.add')}}</button>
-                                            </div>
-                                            <hr class="w-100">
-                                        </div>
-
-                                        <div class="col-12 p-0">
-                                            <div class="row w-100 p-0 m-0 parentSkillItems">
-                                                @if(isset($setting) && isset($setting['skill']))
-                                                    @foreach(array_values(json_decode($setting['skill'],true)) as $keySkill => $valueSkill)
-                                                        <div class="col-md-6">
-                                                            <div class="form-group position-relative">
-                                                                <input class="form-control" type="text" name="settings[skill][{{$keySkill}}]" value="{{$valueSkill}}" autocomplete="off">
-                                                                <span class="removeSkillItem"><i class="bi bi-x d-flex"></i></span>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-
-
-
-
-                                        <div class="col-12">
-                                            <hr class="w-100">
-                                        </div>
-
 
 
                                         <div class="col-12">
@@ -235,65 +134,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="col-12 p-0">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <div class="row w-100 p-0 m-0">
-
-                                                <div class="col-12">
-                                                    <div class="d-flex justify-content-start align-items-center gap-2 flex-wrap">
-                                                        <p class="m-0">{{__('web/setting.watermark_title')}}</p>
-                                                    </div>
-                                                    <hr class="w-100">
-                                                </div>
-
-
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <div class="form-check form-switch p-0 gap-2">
-                                                            <input type="hidden" name="settings[active_watermark]" value="0">
-                                                            <input class="form-check-input m-0" type="checkbox" value="1" name="settings[active_watermark]" dir="ltr" id="active_watermark" {{isset($setting) && isset($setting['active_watermark']) && $setting['active_watermark'] ? 'checked':''}}>
-                                                            <label class="form-check-label m-0" for="active_watermark">{{__('web/setting.form.active_watermark')}}</label>
-                                                        </div>
-                                                        @error('active_watermark') <div class="text-danger text-14">{{$message}}</div> @enderror
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label for="watermark_ids" class="form-control-label">{{__('web/setting.form.watermark_ids')}}</label>
-                                                        <select class="form-control select2 {{$errors->has('watermark_ids') ? 'border-danger':''}}" name="settings[watermark_ids][]" id="watermark_ids" multiple>
-                                                            @foreach(\App\Enums\Gallery\StorageTypeEnum::getAccessWaterMarkTypes() as $type)
-                                                                <option value="{{$type}}" {{isset($setting) && isset($setting['watermark_ids']) && in_array($type,json_decode($setting['watermark_ids'],true)) ? 'selected' : ''}}>{{\App\Enums\Gallery\StorageTypeEnum::getTypesPersian()[$type]}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        @error('watermark_ids') <div class="text-danger text-14">{{$message}}</div> @enderror
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <input type="hidden" name="settings[watermark]">
-                                                        <label for="watermark" class="form-control-label">{{__('web/setting.form.watermark')}}</label>
-                                                        <input class="d-none select-image form-control {{$errors->has('watermark') ? 'border-danger':''}}" type="file" name="watermark" id="watermark" autocomplete="off" placeholder="{{__('web/setting.form.watermark')}}">
-                                                        @error('watermark') <div class="text-danger text-14">{{$message}}</div> @enderror
-                                                        <label for="watermark" class="form-control parent_images d-flex justify-content-center align-items-center">
-                                                            @if(count($setting) && isset($setting['watermark']))
-                                                                <img src="{{asset('storage/'.$setting['watermark'])}}" alt="user-image">
-                                                            @else
-                                                                <i class="bi bi-upload"></i>
-                                                            @endif
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>

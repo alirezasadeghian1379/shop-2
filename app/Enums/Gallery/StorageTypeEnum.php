@@ -10,6 +10,8 @@ enum StorageTypeEnum
     const PRODUCT = 'PRODUCT';
     const WATERMARK = 'WATERMARK';
     const SLIDER = 'SLIDER';
+    const WHATSAPP = 'WHATSAPP';
+    const ABOUT = 'ABOUT';
 
     public static function getTypes()
     {
@@ -20,6 +22,8 @@ enum StorageTypeEnum
             self::PRODUCT,
             self::WATERMARK,
             self::SLIDER,
+            self::WHATSAPP,
+            self::ABOUT,
         ];
     }
 
@@ -32,6 +36,8 @@ enum StorageTypeEnum
             self::PRODUCT => 'محصولات',
             self::WATERMARK => 'واترمارک',
             self::SLIDER => 'اسلایدر',
+            self::WHATSAPP => 'تصاویر ارسالی در واتساپ',
+            self::ABOUT => 'درباره ما',
         ];
     }
     public static function getAccessWaterMarkTypes()
@@ -42,6 +48,8 @@ enum StorageTypeEnum
             self::AVATAR,
             self::PRODUCT,
             self::SLIDER,
+            self::WHATSAPP,
+            self::ABOUT,
         ];
     }
 }

@@ -49,4 +49,12 @@ class UserService
     {
         return $this->userRepository->getAllLatestByCount($count);
     }
+    public function getActiveComplete():Collection
+    {
+        return $this->userRepository->getActiveComplete();
+    }
+    public function getAllById(array $ids):Collection
+    {
+        return $this->userRepository->getAllById($ids);
+    }
 }

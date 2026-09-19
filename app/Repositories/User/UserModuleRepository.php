@@ -228,4 +228,65 @@ class UserModuleRepository implements IUserRepository
             );
         });
     }
+    public function getActiveComplete(): Collection
+    {
+        $users = UserModel::with(['roles','avatar'])
+            ->where('active',1)
+            ->latest()
+            ->get();
+        return $users->map(function ($user) {
+            return new User(
+                $user->id,
+                $user->first_name,
+                $user->last_name,
+                $user->phone,
+                $user->active,
+                $user->role_type,
+                $user->email,
+                $user->created_at,
+                $user->updated_at,
+                $user->avatar()->get()->map(fn($avatar) => new GalleryDb(
+                    $avatar->id,
+                    $avatar->uuid,
+                    $avatar->type,
+                    $avatar->path,
+                    $avatar->item_id,
+                    $avatar->registered,
+                    $avatar->created_at,
+                    $avatar->updated_at,
+                ))->first(),
+            );
+        });
+    }
+    public function getAllById(array $ids): Collection
+    {
+        $users = UserModel::whereIn('id',$ids)
+            ->with(['roles','avatar'])
+            ->where('active',1)
+            ->latest()
+            ->get();
+        return $users->map(function ($user) {
+            return new User(
+                $user->id,
+                $user->first_name,
+                $user->last_name,
+                $user->phone,
+                $user->active,
+                $user->role_type,
+                $user->email,
+                $user->created_at,
+                $user->updated_at,
+                $user->avatar()->get()->map(fn($avatar) => new GalleryDb(
+                    $avatar->id,
+                    $avatar->uuid,
+                    $avatar->type,
+                    $avatar->path,
+                    $avatar->item_id,
+                    $avatar->registered,
+                    $avatar->created_at,
+                    $avatar->updated_at,
+                ))->first(),
+            );
+        });
+    }
 }

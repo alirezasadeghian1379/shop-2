@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\V1\Web;
+namespace App\Http\Controllers\V1\Web\Setting;
 
 use App\Enums\Gallery\StorageTypeEnum;
 use App\Helpers\Adapters\Exception\Exception;
@@ -40,10 +40,6 @@ class SettingController extends Controller
                 $icon = $this->settingService->findByKey('icon');
                 $this->galleryStorageService->update($request->file('icon'),'settings',$icon->id,StorageTypeEnum::ICON,$icon->icon->id ?? null);
             }
-            if ($request->hasFile('watermark')) {
-                $watermark = $this->settingService->findByKey('watermark');
-                $this->galleryStorageService->update($request->file('watermark'),'settings',$watermark->id,StorageTypeEnum::WATERMARK,$watermark->watermark->id ?? null);
-            }
             alert()->success('تایید','تنظیمات با موفقیت ویرایش شد');
             return redirect()->route('admin.settings.index');
         } catch (Exception $exception){
@@ -51,5 +47,4 @@ class SettingController extends Controller
             return redirect()->route('admin.settings.index');
         }
     }
-
 }

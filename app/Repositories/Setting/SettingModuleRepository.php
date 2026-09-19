@@ -22,6 +22,9 @@ class SettingModuleRepository implements ISettingRepository
                 }  elseif ($item->key === 'watermark') {
                     $watermark = $item->watermark()->first();
                     $value = $watermark ? $watermark->path : null;
+                }  elseif ($item->key === 'about_image') {
+                    $about_image = $item->about_image()->first();
+                    $value = $about_image ? $about_image->path : null;
                 } else {
                     $value = $item->value;
                 }
@@ -83,17 +86,26 @@ class SettingModuleRepository implements ISettingRepository
                 $icon->created_at,
                 $icon->updated_at,
             ))->first(),
+            $setting->about_image()->get()->map(fn($icon) => new GalleryDb(
+                $icon->id,
+                $icon->uuid,
+                $icon->type,
+                $icon->path,
+                $icon->item_id,
+                $icon->registered,
+                $icon->created_at,
+                $icon->updated_at,
+            ))->first(),
         );
     }
     public function updateOrCreate(array $data): bool
     {
-        $options = ['help' , 'skill' ,'watermark_ids'];
-        foreach ($options as $option) {
-            if (!array_key_exists($option, $data)) {
-                $data[$option] = null;
-            }
-        }
-
+        $options = ['watermark_ids','social'];
+//        foreach ($options as $option) {
+//            if (!array_key_exists($option, $data)) {
+//                $data[$option] = null;
+//            }
+//        }
         foreach ($data as $key => $value) {
             $finalValue = (in_array($key, $options) && $value !== null) ? json_encode($value) : $value;
             SettingModel::updateOrCreate([

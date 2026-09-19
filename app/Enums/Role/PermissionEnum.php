@@ -14,6 +14,7 @@ enum PermissionEnum
     const QUESTION = 'question';
     const SLIDER = 'slider';
     const NOTIFICATION = 'notification';
+    const WHATSAPP = 'whatsapp';
 
 
     static function Models(): array
@@ -22,7 +23,7 @@ enum PermissionEnum
             self::DASHBOARD => [
                 'actions' => [
                     'index' => 'صفحه اصلی',
-                    'clearCache' => 'خالی کردن کش سایت'
+                    'clearCache' => 'خالی کردن کش سایت',
                 ]
             ],
             self::USER => [
@@ -57,8 +58,24 @@ enum PermissionEnum
             ],
             self::SETTING => [
                 'actions' => [
-                    'index' => 'لیست',
+                    'index' => 'تنظیمات',
                     'update' => 'به روزرسانی',
+                    'aboutIndex' => 'تنظیمات درباره ما',
+                    'aboutUpdate' => 'به روزرسانی درباره ما',
+                    'aiIndex' => 'تنظیمات هوش مصنوعی',
+                    'aiUpdate' => 'به روزرسانی هوش مصنوعی',
+                    'notificationIndex' => 'تنظیمات نوتیفیکیشن',
+                    'notificationUpdate' => 'به روزرسانی نوتیفیکیشن',
+                    'paymentIndex' => 'تنظیمات درگاه پرداخت',
+                    'paymentUpdate' => 'به روزرسانی درگاه پرداخت',
+                    'ruleIndex' => 'تنظیمات قوانین و مقررات',
+                    'ruleUpdate' => 'به روزرسانی قوانین و مقررات',
+                    'smsIndex' => 'تنظیمات اس ام اس',
+                    'smsUpdate' => 'به روزرسانی اس ام اس',
+                    'socialIndex' => 'تنظیمات شبکه های مجازی',
+                    'socialUpdate' => 'به روزرسانی شبکه های مجازی',
+                    'watermarkIndex' => 'تنظیمات واترمارک',
+                    'watermarkUpdate' => 'به روزرسانی واترمارک',
                 ]
             ],
             self::PROVINCE => [
@@ -112,6 +129,17 @@ enum PermissionEnum
                     'destroyAll' => 'حذف گروهی',
                 ]
             ],
+            self::WHATSAPP => [
+                'actions' => [
+                    'index' => 'گفتگوها',
+                    'show' => 'نمایش پیام ها',
+                    'store' => 'ایجاد پیام',
+                    'status' => 'وضعیت اتصال',
+                    'connect' => 'اتصال',
+                    'disconnect' => 'قطع',
+                    'run' => 'اجرا کردن',
+                ]
+            ],
 
         ];
         return $models;
@@ -128,5 +156,6 @@ enum PermissionEnum
         self::QUESTION => 'سوالات متداول',
         self::SLIDER => 'اسلایدر',
         self::NOTIFICATION => 'اعلان ها',
+        self::WHATSAPP => 'واتساپ',
     ];
 }

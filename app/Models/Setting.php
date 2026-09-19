@@ -23,4 +23,8 @@ class Setting extends Model
     {
         return $this->hasOne(Storage::class,'item_id')->where('type' ,StorageTypeEnum::WATERMARK)->latest();
     }
+    public function about_image()
+    {
+        return $this->hasOne(Storage::class,'item_id')->where('type' ,StorageTypeEnum::ABOUT)->latest();
+    }
 }

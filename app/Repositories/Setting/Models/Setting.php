@@ -17,6 +17,8 @@ class Setting
     public $icon = null;
     /** @var GalleryDb|GalleryDb[]|null */
     public $watermark = null;
+    /** @var GalleryDb|GalleryDb[]|null */
+    public $about_image = null;
 
     public function __construct(
         int $id,
@@ -25,6 +27,7 @@ class Setting
         $logo = null,
         $icon = null,
         $watermark = null,
+        $about_image = null,
     )
     {
         $this->id = $id;
@@ -33,5 +36,6 @@ class Setting
         $this->logo = $logo;
         $this->icon = $icon;
         $this->watermark = $watermark;
+        $this->about_image = $about_image;
     }
 }

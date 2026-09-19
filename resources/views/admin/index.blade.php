@@ -165,7 +165,66 @@
             </div>
         @endcan
 
-{{--        <div class="row my-4">--}}
+
+        @canany(['status whatsapp','run whatsapp'])
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card card-shadow whatsapp-card">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-lg-7">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <div class="whatsapp-icon ms-3">
+                                            <i class="bi bi-whatsapp d-flex"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="mb-1">{{__('web/dashboard.whatsapp.title')}}</h5>
+                                            <p class="text-sm text-muted mb-0">{{__('web/dashboard.whatsapp.description')}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span id="whatsapp-status-badge" class="badge bg-gradient-secondary">{{__('web/dashboard.whatsapp.status.pending')}}</span>
+                                        <span id="whatsapp-phone" class="text-sm text-muted me-2"></span>
+                                    </div>
+
+                                    <ol class="text-sm text-secondary pe-3 mb-4">
+                                        <li>{{__('web/dashboard.whatsapp.help.text1')}}</li>
+                                        <li>{{__('web/dashboard.whatsapp.help.text2')}}</li>
+                                    </ol>
+
+                                    @can('connect whatsapp')
+                                        <button type="button" id="whatsapp-connect" class="btn btn-success mb-0">
+                                            <i class="bi bi-qr-code-scan ms-1"></i>
+                                            {{__('web/dashboard.whatsapp.buttons.connect')}}
+                                        </button>
+                                    @endcan
+                                    @can('disconnect whatsapp')
+                                        <button type="button" id="whatsapp-disconnect" class="btn btn-outline-danger mb-0 me-2 d-none">
+                                            <i class="bi bi-link-45deg ms-1"></i>
+                                            {{__('web/dashboard.whatsapp.buttons.disconnect')}}
+                                        </button>
+                                    @endcan
+                                    <p id="whatsapp-error" class="text-danger text-sm mt-3 mb-0 d-none"></p>
+                                </div>
+
+                                <div class="col-lg-5 mt-4 mt-lg-0 text-center">
+                                    <div id="whatsapp-qr-placeholder" class="whatsapp-qr-placeholder w-100">
+                                        <i class="bi bi-qr-code fs-1 text-muted"></i>
+                                        <span class="text-sm text-muted mt-2">{{__('web/dashboard.whatsapp.image.text1')}}</span>
+                                    </div>
+                                    <img id="whatsapp-qr" class="whatsapp-qr d-none w-100" alt="{{__('web/dashboard.whatsapp.image.text2')}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endcanany
+
+
+
+        {{--        <div class="row my-4">--}}
 {{--            <div class="col-12 mb-4">--}}
 {{--                <div class="card card-shadow">--}}
 {{--                    <div class="card-header pb-0">--}}

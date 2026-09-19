@@ -14,7 +14,12 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('admin.index');
+        try {
+            return view('admin.index');
+        } catch (Exception $exception) {
+            alert()->error('خطا',$exception->getMessage());
+            return redirect()->route('admin.index');
+        }
     }
     public function clearCache()
     {
@@ -24,7 +29,7 @@ class DashboardController extends Controller
             return redirect()->route('admin.index');
         } catch (Exception $exception) {
             alert()->error('خطا',$exception->getMessage());
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('admin.index');
         }
     }
 }

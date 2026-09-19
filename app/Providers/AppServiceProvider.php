@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Policies\RolePolicy;
 use App\Policies\UserPolicy;
 use App\Repositories\Admin\{AdminModuleRepository, IAdminRepository, Models\Admin};
+use App\Repositories\WhatsappBridge\{IWhatsappBridgeRepository,WhatsappBridgeModuleRepository};
+use App\Repositories\Whatsapp\{IWhatsappRepository, WhatsappModuleRepository};
 use App\Repositories\FirebaseNotification\{FirebaseNotificationModuleRepository,IFirebaseNotificationRepository};
 use App\Repositories\UserNotification\{IUserNotificationRepository,UserNotificationModuleRepository};
 use App\Repositories\Notification\{INotificationRepository,NotificationModuleRepository};
@@ -46,6 +48,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(INotificationRepository::class,NotificationModuleRepository::class);
         $this->app->bind(IUserNotificationRepository::class,UserNotificationModuleRepository::class);
         $this->app->bind(IFirebaseNotificationRepository::class,FirebaseNotificationModuleRepository::class);
+        $this->app->bind(IWhatsappRepository::class,WhatsappModuleRepository::class);
+        $this->app->bind(IWhatsappBridgeRepository::class,WhatsappBridgeModuleRepository::class);
+
 
         $this->app->singleton('logo', function ($app) {
             $settingService = $app->make(SettingService::class);

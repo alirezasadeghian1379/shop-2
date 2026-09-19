@@ -24,6 +24,17 @@
                 </li>
             @endif
 
+                @if(in_array('index whatsapp',app('permissions')))
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.whatsapp-chats.index') }}">
+                            <div class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-whatsapp text-danger text-lg opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text me-1">{{__('web/dashboard.whatsapp_title')}}</span>
+                        </a>
+                    </li>
+                @endif
+
             @if(in_array('index user',app('permissions')) || in_array('index admin',app('permissions')) || in_array('index role',app('permissions')))
                 <li class="nav-item">
                     <a class="nav-link cursor-pointer" data-bs-toggle="collapse" data-bs-target="#userCollapse" aria-expanded="false">
@@ -130,6 +141,88 @@
             @endif
 
 
+            @if( in_array('index setting',app('permissions')) || in_array('update setting',app('permissions')) || in_array('aboutIndex setting',app('permissions')) || in_array('aboutUpdate setting',app('permissions')) || in_array('aiIndex setting',app('permissions')) || in_array('aiUpdate setting',app('permissions')) || in_array('paymentIndex setting',app('permissions')) || in_array('paymentUpdate setting',app('permissions')) || in_array('ruleIndex setting',app('permissions')) || in_array('ruleUpdate setting',app('permissions')) || in_array('smsIndex setting',app('permissions')) || in_array('smsUpdate setting',app('permissions')) || in_array('socialIndex setting',app('permissions')) || in_array('socialUpdate setting',app('permissions')) || in_array('watermarkIndex setting',app('permissions')) || in_array('watermarkUpdate setting',app('permissions')))
+                <li class="nav-item">
+                    <a class="nav-link cursor-pointer" data-bs-toggle="collapse" data-bs-target="#settingCollapse" aria-expanded="false">
+                        <div
+                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
+                            <i class="bi bi-gear-fill text-primary text-lg opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text me-1">{{  __('web/dashboard.setting_title')}}</span>
+                    </a>
+                    <div class="collapse" id="settingCollapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                            @can('index setting')
+                                <li>
+                                    <a href="{{route('admin.settings.index')}}" class="link-dark rounded d-flex justify-content-start align-items-center gap-2">
+                                        <i class="bi bi-circle d-flex text-icon-sm text-primary"></i>
+                                        <span>{{  __('web/dashboard.setting_titles.setting')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('aboutIndex setting')
+                                <li>
+                                    <a href="{{route('admin.settings.about.index')}}" class="link-dark rounded d-flex justify-content-start align-items-center gap-2">
+                                        <i class="bi bi-circle d-flex text-icon-sm text-primary"></i>
+                                        <span>{{  __('web/dashboard.setting_titles.about')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('aiIndex setting')
+                                <li>
+                                    <a href="{{route('admin.settings.ai.index')}}" class="link-dark rounded d-flex justify-content-start align-items-center gap-2">
+                                        <i class="bi bi-circle d-flex text-icon-sm text-primary"></i>
+                                        <span>{{  __('web/dashboard.setting_titles.ai')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('paymentIndex setting')
+                                <li>
+                                    <a href="{{route('admin.settings.payment.index')}}" class="link-dark rounded d-flex justify-content-start align-items-center gap-2">
+                                        <i class="bi bi-circle d-flex text-icon-sm text-primary"></i>
+                                        <span>{{  __('web/dashboard.setting_titles.payment')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('ruleIndex setting')
+                                <li>
+                                    <a href="{{route('admin.settings.rule.index')}}" class="link-dark rounded d-flex justify-content-start align-items-center gap-2">
+                                        <i class="bi bi-circle d-flex text-icon-sm text-primary"></i>
+                                        <span>{{  __('web/dashboard.setting_titles.rule')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('smsIndex setting')
+                                <li>
+                                    <a href="{{route('admin.settings.sms.index')}}" class="link-dark rounded d-flex justify-content-start align-items-center gap-2">
+                                        <i class="bi bi-circle d-flex text-icon-sm text-primary"></i>
+                                        <span>{{  __('web/dashboard.setting_titles.sms')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('socialIndex setting')
+                                <li>
+                                    <a href="{{route('admin.settings.social.index')}}" class="link-dark rounded d-flex justify-content-start align-items-center gap-2">
+                                        <i class="bi bi-circle d-flex text-icon-sm text-primary"></i>
+                                        <span>{{  __('web/dashboard.setting_titles.social')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('watermarkIndex setting')
+                                <li>
+                                    <a href="{{route('admin.settings.watermark.index')}}" class="link-dark rounded d-flex justify-content-start align-items-center gap-2">
+                                        <i class="bi bi-circle d-flex text-icon-sm text-primary"></i>
+                                        <span>{{  __('web/dashboard.setting_titles.watermark')}}</span>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </div>
+                </li>
+            @endif
+
+
+
             @if(in_array('index slider',app('permissions')))
                 <li class="nav-item">
                     <a class="nav-link " href="{{route('admin.sliders.index')}}">
@@ -141,17 +234,20 @@
                     </a>
                 </li>
             @endif
-            @if(in_array('index setting',app('permissions')))
-                <li class="nav-item">
-                    <a class="nav-link " href="{{route('admin.settings.index')}}">
-                        <div
-                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="bi bi-gear-fill text-primary text-lg opacity-10"></i>
-                        </div>
-                        <span class="nav-link-text me-1">{{  __('web/dashboard.setting')}}</span>
-                    </a>
-                </li>
-            @endif
+
+
+
+{{--            @if(in_array('index setting',app('permissions')))--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link " href="{{route('admin.settings.index')}}">--}}
+{{--                        <div--}}
+{{--                            class="icon icon-shape icon-sm border-radius-md text-center ms-2 d-flex align-items-center justify-content-center">--}}
+{{--                            <i class="bi bi-gear-fill text-primary text-lg opacity-10"></i>--}}
+{{--                        </div>--}}
+{{--                        <span class="nav-link-text me-1">{{  __('web/dashboard.setting')}}</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            @endif--}}
             @if(in_array('index question',app('permissions')))
                 <li class="nav-item">
                     <a class="nav-link " href="{{route('admin.questions.index')}}">

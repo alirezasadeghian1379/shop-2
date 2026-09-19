@@ -17,4 +17,6 @@ interface IUserRepository
     public function updateProfile(int $id,array $data): bool;
     public function getAllCount(): int;
     public function getAllLatestByCount(int $count): Collection;
+    public function getActiveComplete():Collection;
+    public function getAllById(array $ids): Collection;
 }
