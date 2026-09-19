@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Controllers\V1\Web\Setting;
+
+use App\Helpers\Adapters\Exception\Exception;
+use App\Http\Controllers\Controller;
+use App\Services\Gallery\GalleryStorageService;
+use App\Services\SettingService;
+use Illuminate\Http\Request;
+
+class SettingPaymentController extends Controller
+{
+    public function __construct(
+        protected SettingService $settingService,
+        protected GalleryStorageService $galleryStorageService
+    ){
+        $this->middleware('checkPermission:setting');
+    }
+
+    public function paymentIndex()
+    {
+        try {
+            $setting = $this->settingService->all();
+            return view('admin.setting.payment.index',compact('setting'));
+        } catch (Exception $exception){
+            alert()->error('خطا',$exception->getMessage());
+            return redirect()->route('admin.settings.payment.index');
+        }
+    }
+    public function paymentUpdate(Request $request)
+    {
+        try {
+            $this->settingService->updateOrCreate($request->get('settings'));
+            alert()->success('تایید','تنظیمات با موفقیت ویرایش شد');
+            return redirect()->route('admin.settings.payment.index');
+        } catch (Exception $exception){
+            alert()->error('خطا',$exception->getMessage());
+            return redirect()->route('admin.settings.payment.index');
+        }
+    }
+}
