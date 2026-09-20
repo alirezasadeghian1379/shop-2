@@ -197,6 +197,7 @@ code: #CODE#
 -- افزودن ip جدید برای پروکسی
 
 
+
 sudo ufw delete 13
 sudo ufw delete 12
 sudo ufw allow from NEW_PUBLIC_IP to any port 10809 proto tcp
